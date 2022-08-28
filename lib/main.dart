@@ -22,9 +22,21 @@ class TalkaholicApp extends StatefulWidget {
 class _TalkaholicAppState extends State<TalkaholicApp> with WidgetsBindingObserver {
 
   @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
   void didChangePlatformBrightness() {
     AppTheme.refreshSystemOverlay();
     super.didChangePlatformBrightness();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   @override
