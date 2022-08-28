@@ -9,17 +9,17 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   AppTheme.refreshSystemOverlay();
 
-  runApp(const TalkaholicApp());
+  runApp(const WhatsAppCloneApp());
 }
 
-class TalkaholicApp extends StatefulWidget {
-  const TalkaholicApp({super.key});
+class WhatsAppCloneApp extends StatefulWidget {
+  const WhatsAppCloneApp({super.key});
 
   @override
-  State<TalkaholicApp> createState() => _TalkaholicAppState();
+  State<WhatsAppCloneApp> createState() => _WhatsAppCloneAppState();
 }
 
-class _TalkaholicAppState extends State<TalkaholicApp> with WidgetsBindingObserver {
+class _WhatsAppCloneAppState extends State<WhatsAppCloneApp> with WidgetsBindingObserver {
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _TalkaholicAppState extends State<TalkaholicApp> with WidgetsBindingObserv
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Talkaholic',
+      title: 'WhatsApp Clone',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       initialRoute: HomeScreen.screen_id,

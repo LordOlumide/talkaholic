@@ -3,15 +3,17 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 class AppTheme {
-  static Color lightBackgroundColor = const Color(0xFFf2f2f2);
-  static Color lightPrimaryColor = const Color(0xFFf2f2f2);
-  static Color lightAccentColor = Colors.blueGrey.shade200;
-  static Color lightParticlesColor = const Color(0x44948282);
+  static Color FloatingActionButtonColor = const Color(0xFF00a884);
 
-  static Color darkBackgroundColor = const Color(0xFF1A2127);
-  static Color darkPrimaryColor = const Color(0xFF1A2127);
-  static Color darkAccentColor = Colors.blueGrey.shade600;
-  static Color darkParticlesColor = const Color(0x441C2A3D);
+  static Color lightBackgroundColor = const Color(0xFFf7f8fa);
+  static Color lightPrimaryColor = const Color(0xFFffffff); // Also card colour
+  static Color lightSecondaryColor = const Color(0xFF008069);
+  static Color lightNotificationsColor = const Color(0xFF25d366);
+
+  static Color darkBackgroundColor = const Color(0xFF0b141a);
+  static Color darkPrimaryColor = const Color(0xFF111b21); // Also card colour
+  static Color darkSecondaryColor = const Color(0xFF202c33);
+  static Color darkNotificationsColor = const Color(0xFF00a884);
 
   const AppTheme._();
 
@@ -21,7 +23,7 @@ class AppTheme {
   static final lightTheme = ThemeData(
     colorScheme: const ColorScheme.light().copyWith(
       primary: lightPrimaryColor,
-      secondary: lightAccentColor,
+      secondary: lightSecondaryColor,
       background: lightBackgroundColor,
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -30,7 +32,7 @@ class AppTheme {
   static final darkTheme = ThemeData(
     colorScheme: const ColorScheme.dark().copyWith(
       primary: darkPrimaryColor,
-      secondary: darkAccentColor,
+      secondary: darkSecondaryColor,
       background: darkBackgroundColor,
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,

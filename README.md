@@ -1,4 +1,4 @@
-# talkaholic
+# WhatsApp clone
 
 Witness me as I convert this flutter project into a great chatting app suitable for anybody.
 
