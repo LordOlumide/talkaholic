@@ -1,21 +1,38 @@
 import 'package:flutter/material.dart';
 import 'routing/app_router.dart';
+import 'constants/theme/app_theme.dart';
+// screens
 import 'screens/home_screen/home_screen.dart';
 
+
 void main() {
-  runApp(const Talkaholic());
+  WidgetsFlutterBinding.ensureInitialized();
+  AppTheme.refreshSystemOverlay();
+
+  runApp(const TalkaholicApp());
 }
 
-class Talkaholic extends StatelessWidget {
-  const Talkaholic({super.key});
+class TalkaholicApp extends StatefulWidget {
+  const TalkaholicApp({super.key});
+
+  @override
+  State<TalkaholicApp> createState() => _TalkaholicAppState();
+}
+
+class _TalkaholicAppState extends State<TalkaholicApp> with WidgetsBindingObserver {
+
+  @override
+  void didChangePlatformBrightness() {
+    AppTheme.refreshSystemOverlay();
+    super.didChangePlatformBrightness();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Talkaholic',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       initialRoute: HomeScreen.screen_id,
       onGenerateRoute: AppRouter.onGenerateRoute,
     );
