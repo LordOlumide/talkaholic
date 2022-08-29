@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+// tabs
+import 'tab_views/camera_tab_view.dart';
+import 'tab_views/chats_tab_view.dart';
+import 'tab_views/status_tab_view.dart';
+import 'tab_views/calls_tab_view.dart';
+// widgets
+import 'widgets/home_screen_appbar.dart';
+import 'widgets/floating_action_button.dart';
 import 'widgets/small_tab_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+  IconData fabIcon = Icons.message;
 
   @override
   void initState() {
@@ -21,78 +30,55 @@ class _HomeScreenState extends State<HomeScreen>
       initialIndex: 1,
       vsync: this,
     );
+    tabController.addListener(() {
+      refreshFABIcon();
+    });
     super.initState();
+  }
+
+  void refreshFABIcon() {
+    setState(() {
+      switch(tabController.index) {
+        case 0:
+          break;
+        case 1:
+          fabIcon = Icons.message;
+          break;
+        case 2:
+          fabIcon = Icons.camera_enhance;
+          break;
+        case 3:
+          fabIcon = Icons.call;
+          break;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    tabController.removeListener(refreshFABIcon);
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Theme.of(context).colorScheme.secondary,
-        title: Text(
-          'WhatsApp Clone',
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        actions: [
-          // Search IconButton
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 38),
-            child: IconButton(
-              icon: Icon(
-                Icons.search,
-                size: 25,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              onPressed: () {},
-            ),
-          ),
-          // more_vert IconButton
-          IconButton(
-            icon: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).iconTheme.color,
-            ),
-            onPressed: () {},
-          ),
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        headerSliverBuilder: (context, _) => [
+          HomeScreenAppBar(tabController: tabController),
         ],
-        bottom: TabBar(
+        body: TabBarView(
           controller: tabController,
-          indicatorColor: Theme.of(context).tabBarTheme.labelColor,
-          indicatorWeight: 2.5,
-          tabs: [
-            SmallTab(
-              icon: Icon(Icons.camera),
-            ),
-            Tab(
-              text: 'CHATS',
-            ),
-            Tab(
-              text: 'STATUS',
-            ),
-            Tab(
-              text: 'CALLS',
-            ),
+          children: const [
+            CameraTabView(),
+            ChatsTabView(),
+            StatusTabView(),
+            CallsTabView(),
           ],
         ),
       ),
-      body: TabBarView(
-        controller: tabController,
-        children: [
-          Center(
-            child: Text('Camera Tab view'),
-          ),
-          Center(
-            child: Text('chats tab view'),
-          ),
-          Center(
-            child: Text('status Tab view'),
-          ),
-          Center(
-            child: Text('calls Tab view'),
-          ),
-        ],
-      ),
+      floatingActionButton: HomeScreenFAB(fabIcon: fabIcon),
     );
   }
 }

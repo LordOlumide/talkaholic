@@ -54,6 +54,9 @@ class AppTheme {
     iconTheme: IconThemeData(
       color: lightAppBarIconColor,
     ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: floatingActionButtonColor,
+    ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 
@@ -82,6 +85,9 @@ class AppTheme {
     ),
     iconTheme: IconThemeData(
       color: darkAppBarIconColor,
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: floatingActionButtonColor,
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
