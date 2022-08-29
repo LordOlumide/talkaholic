@@ -9,11 +9,17 @@ class AppTheme {
   static Color lightPrimaryColor = const Color(0xFFffffff); // Also card colour
   static Color lightSecondaryColor = const Color(0xFF008069);
   static Color lightNotificationsColor = const Color(0xFF25d366);
+  static Color lightTabBarSelectedColor = const Color(0xFFffffff);
+  static Color lightTabBarUnselectedColor = const Color(0xFFb3d9d2);
+  static Color lightAppBarIconColor = const Color(0xFFffffff);
 
   static Color darkBackgroundColor = const Color(0xFF0b141a);
   static Color darkPrimaryColor = const Color(0xFF111b21); // Also card colour
   static Color darkSecondaryColor = const Color(0xFF202c33);
   static Color darkNotificationsColor = const Color(0xFF00a884);
+  static Color darkTabBarSelectedColor = const Color(0xFF00a884);
+  static Color darkTabBarUnselectedColor = const Color(0xFF8696a0);
+  static Color darkAppBarIconColor = const Color(0xFF8696a0);
 
   const AppTheme._();
 
@@ -26,6 +32,26 @@ class AppTheme {
       secondary: lightSecondaryColor,
       background: lightBackgroundColor,
     ),
+    textTheme: ThemeData.light().textTheme.copyWith(
+      titleLarge: const TextStyle(
+        color: Color(0xFFffffff),
+      ),
+    ),
+    tabBarTheme: TabBarTheme(
+      labelColor: lightTabBarSelectedColor,
+      unselectedLabelColor: lightTabBarUnselectedColor,
+      labelStyle: const TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+      ),
+      unselectedLabelStyle: const TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    iconTheme: IconThemeData(
+      color: lightAppBarIconColor,
+    ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 
@@ -34,6 +60,26 @@ class AppTheme {
       primary: darkPrimaryColor,
       secondary: darkSecondaryColor,
       background: darkBackgroundColor,
+    ),
+    textTheme: ThemeData.light().textTheme.copyWith(
+      titleLarge: const TextStyle(
+        color: Color(0xFF8696a0),
+      ),
+    ),
+    tabBarTheme: TabBarTheme(
+      labelColor: darkTabBarSelectedColor,
+      unselectedLabelColor: darkTabBarUnselectedColor,
+      labelStyle: const TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+      ),
+      unselectedLabelStyle: const TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    iconTheme: IconThemeData(
+      color: darkAppBarIconColor,
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
