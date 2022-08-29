@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'routing/app_router.dart';
 import 'constants/theme/app_theme.dart';
+import 'package:sizer/sizer.dart';
 // screens
 import 'screens/home_screen/home_screen.dart';
 
@@ -41,12 +42,14 @@ class _WhatsAppCloneAppState extends State<WhatsAppCloneApp> with WidgetsBinding
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'WhatsApp Clone',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      initialRoute: HomeScreen.screen_id,
-      onGenerateRoute: AppRouter.onGenerateRoute,
+    return Sizer(
+      builder: (context, orientation, deviceType) => MaterialApp(
+        title: 'WhatsApp Clone',
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        initialRoute: HomeScreen.screen_id,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+      ),
     );
   }
 }

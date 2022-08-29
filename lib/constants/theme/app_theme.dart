@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 class AppTheme {
-  static Color FloatingActionButtonColor = const Color(0xFF00a884);
+  static Color floatingActionButtonColor = const Color(0xFF00a884);
 
   static Color lightBackgroundColor = const Color(0xFFf7f8fa);
   static Color lightPrimaryColor = const Color(0xFFffffff); // Also card colour
@@ -12,6 +12,7 @@ class AppTheme {
   static Color lightTabBarSelectedColor = const Color(0xFFffffff);
   static Color lightTabBarUnselectedColor = const Color(0xFFb3d9d2);
   static Color lightAppBarIconColor = const Color(0xFFffffff);
+  static Color lightAppBarTitleColor = const Color(0xFFffffff);
 
   static Color darkBackgroundColor = const Color(0xFF0b141a);
   static Color darkPrimaryColor = const Color(0xFF111b21); // Also card colour
@@ -20,6 +21,7 @@ class AppTheme {
   static Color darkTabBarSelectedColor = const Color(0xFF00a884);
   static Color darkTabBarUnselectedColor = const Color(0xFF8696a0);
   static Color darkAppBarIconColor = const Color(0xFF8696a0);
+  static Color darkAppBarTitleColor = const Color(0xFF8696a0);
 
   const AppTheme._();
 
@@ -33,8 +35,8 @@ class AppTheme {
       background: lightBackgroundColor,
     ),
     textTheme: ThemeData.light().textTheme.copyWith(
-      titleLarge: const TextStyle(
-        color: Color(0xFFffffff),
+      titleLarge: TextStyle(
+        color: lightAppBarTitleColor,
       ),
     ),
     tabBarTheme: TabBarTheme(
@@ -62,8 +64,8 @@ class AppTheme {
       background: darkBackgroundColor,
     ),
     textTheme: ThemeData.light().textTheme.copyWith(
-      titleLarge: const TextStyle(
-        color: Color(0xFF8696a0),
+      titleLarge: TextStyle(
+        color: darkAppBarTitleColor,
       ),
     ),
     tabBarTheme: TabBarTheme(

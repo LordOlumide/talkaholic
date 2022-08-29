@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/small_tab_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const screen_id = 'Home screen';
@@ -59,8 +60,8 @@ class _HomeScreenState extends State<HomeScreen>
           controller: tabController,
           indicatorColor: Theme.of(context).tabBarTheme.labelColor,
           indicatorWeight: 2.5,
-          tabs: const [
-            Tab(
+          tabs: [
+            SmallTab(
               icon: Icon(Icons.camera),
             ),
             Tab(
