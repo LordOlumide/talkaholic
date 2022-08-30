@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talkaholic/helpers/date_helpers.dart';
 
 class ChatContactTemplate extends StatelessWidget {
   String contactName;
@@ -18,7 +19,10 @@ class ChatContactTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      color: Theme.of(context).colorScheme.primary,
+      color: Theme
+          .of(context)
+          .colorScheme
+          .primary,
       child: Row(
         children: [
           // Profile image
@@ -26,9 +30,9 @@ class ChatContactTemplate extends StatelessWidget {
             child: profileImage != null
                 ? Image.asset('profileImage')
                 : const Icon(
-                    Icons.person,
-                    size: 30,
-                  ),
+              Icons.person,
+              size: 30,
+            ),
           ),
 
           Column(
@@ -39,15 +43,24 @@ class ChatContactTemplate extends StatelessWidget {
                   Text(
                     contactName,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .color,
                       fontSize: 16,
                     ),
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    lastContactTime.toString(),
+                    formatLastContactTime(lastContactTime),
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyMedium!.color,
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .color,
                     ),
                   ),
                 ],
@@ -57,8 +70,13 @@ class ChatContactTemplate extends StatelessWidget {
               Text(
                 lastMessage,
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyMedium!.color,
+                  color: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .color,
                 ),
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
             ],
