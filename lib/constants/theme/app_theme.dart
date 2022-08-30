@@ -13,6 +13,8 @@ class AppTheme {
   static Color lightTabBarUnselectedColor = const Color(0xFFb3d9d2);
   static Color lightAppBarIconColor = const Color(0xFFffffff);
   static Color lightAppBarTitleColor = const Color(0xFFffffff);
+  static Color lightModeBlackText = const Color(0xFF111B21);
+  static Color lightModeGreyText = const Color(0xFF667781);
 
   static Color darkBackgroundColor = const Color(0xFF0b141a);
   static Color darkPrimaryColor = const Color(0xFF111b21); // Also card colour
@@ -22,6 +24,8 @@ class AppTheme {
   static Color darkTabBarUnselectedColor = const Color(0xFF8696a0);
   static Color darkAppBarIconColor = const Color(0xFF8696a0);
   static Color darkAppBarTitleColor = const Color(0xFF8696a0);
+  static Color darkModeWhiteText = const Color(0xFFE9EDEF);
+  static Color darkModeGreyText = const Color(0xFF8696A0);
 
   const AppTheme._();
 
@@ -35,8 +39,14 @@ class AppTheme {
       background: lightBackgroundColor,
     ),
     textTheme: ThemeData.light().textTheme.copyWith(
-      titleLarge: TextStyle(
+      titleLarge: TextStyle( // currently used for header text in HomeScreenAppBar
         color: lightAppBarTitleColor,
+      ),
+      bodyLarge: TextStyle( // currently used for contactName in chat_contact_template
+        color: lightModeBlackText,
+      ),
+      bodyMedium: TextStyle( // currently used in chat_contact_template
+        color: lightModeGreyText,
       ),
     ),
     tabBarTheme: TabBarTheme(
@@ -69,6 +79,12 @@ class AppTheme {
     textTheme: ThemeData.light().textTheme.copyWith(
       titleLarge: TextStyle(
         color: darkAppBarTitleColor,
+      ),
+      bodyLarge: TextStyle(
+        color: darkModeWhiteText,
+      ),
+      bodyMedium: TextStyle(
+        color: darkModeGreyText,
       ),
     ),
     tabBarTheme: TabBarTheme(

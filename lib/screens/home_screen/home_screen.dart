@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // tabs
 import 'tab_views/camera_tab_view.dart';
-import 'tab_views/chats_tab_view.dart';
+import 'tab_views/chats_tab_view/chats_tab_view.dart';
 import 'tab_views/status_tab_view.dart';
 import 'tab_views/calls_tab_view.dart';
 // widgets
