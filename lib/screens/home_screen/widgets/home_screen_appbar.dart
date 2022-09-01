@@ -9,6 +9,10 @@ class HomeScreenAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cameraTabWidth = screenWidth / 24;
+    double normalTabWidth = (screenWidth - cameraTabWidth) / 5;
+
     return SliverAppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -45,21 +49,34 @@ class HomeScreenAppBar extends StatelessWidget {
         controller: tabController,
         indicatorColor: Theme.of(context).tabBarTheme.labelColor,
         indicatorWeight: 2.5,
+        labelPadding: EdgeInsets.symmetric(
+            horizontal:
+                (screenWidth - (cameraTabWidth + normalTabWidth * 3)) / 8),
+        isScrollable: true,
         tabs: [
           SizedBox(
-            width: 10.0.w,
+            width: cameraTabWidth,
             child: const Tab(
               icon: Icon(Icons.camera_alt),
             ),
           ),
-          const Tab(
-            text: 'CHATS',
+          SizedBox(
+            width: normalTabWidth,
+            child: const Tab(
+              text: 'CHATS',
+            ),
           ),
-          const Tab(
-            text: 'STATUS',
+          SizedBox(
+            width: normalTabWidth,
+            child: const Tab(
+              text: 'STATUS',
+            ),
           ),
-          const Tab(
-            text: 'CALLS',
+          SizedBox(
+            width: normalTabWidth,
+            child: const Tab(
+              text: 'CALLS',
+            ),
           ),
         ],
       ),

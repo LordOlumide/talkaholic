@@ -15,6 +15,7 @@ class ChatsTabView extends StatelessWidget {
             lastMessage: placeholderContacts[index]['lastMessage'],
             lastContactTime: placeholderContacts[index]['lastContactTime'],
             profileImage: placeholderContacts[index]['profileImage'],
+            onPressed: () {},
           ),
     );
   }
