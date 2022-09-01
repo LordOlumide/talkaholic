@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talkaholic/constants/theme/app_theme.dart';
 
 class ChatScreenAppBar extends StatelessWidget with PreferredSizeWidget {
   final String contactName;
@@ -16,7 +17,7 @@ class ChatScreenAppBar extends StatelessWidget with PreferredSizeWidget {
       title: Text(
         contactName,
         style: TextStyle(
-          color: Theme.of(context).textTheme.titleLarge!.color,
+          color: Theme.of(context).chatScreenTitleColor,
         ),
         overflow: TextOverflow.ellipsis,
       ),
@@ -32,7 +33,6 @@ class ChatScreenAppBar extends StatelessWidget with PreferredSizeWidget {
               // Back Icon
               Icon(
                 Icons.arrow_back,
-                color: Theme.of(context).iconTheme.color,
               ),
               // Profile photo
               const Expanded(
@@ -57,7 +57,6 @@ class ChatScreenAppBar extends StatelessWidget with PreferredSizeWidget {
           onPressed: () {},
           icon: Icon(
             Icons.videocam,
-            color: Theme.of(context).iconTheme.color,
           ),
         ),
         // Voice call button
@@ -65,7 +64,6 @@ class ChatScreenAppBar extends StatelessWidget with PreferredSizeWidget {
           onPressed: () {},
           icon: Icon(
             Icons.call,
-            color: Theme.of(context).iconTheme.color,
           ),
         ),
         // Menu button
@@ -73,7 +71,6 @@ class ChatScreenAppBar extends StatelessWidget with PreferredSizeWidget {
           onPressed: () {},
           icon: Icon(
             Icons.more_vert,
-            color: Theme.of(context).iconTheme.color,
           ),
         ),
       ],

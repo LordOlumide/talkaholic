@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talkaholic/constants/theme/app_theme.dart';
 import 'widgets/chat_screen_appbar.dart';
 
 class ChattingScreen extends StatelessWidget {
@@ -36,7 +37,7 @@ class ChattingScreen extends StatelessWidget {
                   height: 48.0,
                   margin: const EdgeInsets.fromLTRB(5, 5, 0, 5),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Theme.of(context).messageContainerColor,
                     borderRadius: BorderRadius.circular(24),
                   ),
                   child: Row(
@@ -44,18 +45,35 @@ class ChattingScreen extends StatelessWidget {
                       // emoji icon, textfield, attachments icon, camera icon
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(
-                          Icons.emoji_emotions,
+                        icon: Icon(
+                          Icons.emoji_emotions_outlined,
+                          color: Theme.of(context).messageContainerIconsColor,
                         ),
                       ),
-                      TextField(
-                        decoration: const InputDecoration(
-                          hintText: 'Message',
-                          border: InputBorder.none,
+                      Expanded(
+                        child: TextField(
+                          decoration: const InputDecoration(
+                            hintText: 'Message',
+                            border: InputBorder.none,
+                          ),
+                          textCapitalization: TextCapitalization.sentences,
+                          onSubmitted: (newMessage) {},
                         ),
-                        textCapitalization: TextCapitalization.sentences,
                       ),
-
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.attach_file,
+                          color: Theme.of(context).messageContainerIconsColor,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.camera_alt,
+                          color: Theme.of(context).messageContainerIconsColor,
+                        ),
+                      ),
                     ],
                   ),
                 ),

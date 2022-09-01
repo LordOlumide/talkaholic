@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 class AppTheme {
   static Color floatingActionButtonColor = const Color(0xFF00a884);
+  static Color darkModeDeepGrey = const Color(0xFF202C33);
 
   static Color lightBackgroundColor = const Color(0xFFf7f8fa);
   static Color lightPrimaryColor = const Color(0xFFffffff); // Also card colour
@@ -15,6 +16,7 @@ class AppTheme {
   static Color lightAppBarTitleColor = const Color(0xFFffffff);
   static Color lightModeBlackText = const Color(0xFF111B21);
   static Color lightModeGreyText = const Color(0xFF667781);
+  static Color lightModeGreyIconColor = const Color(0xFF8696A0);
 
   static Color darkBackgroundColor = const Color(0xFF0b141a);
   static Color darkPrimaryColor = const Color(0xFF111b21); // Also card colour
@@ -26,6 +28,7 @@ class AppTheme {
   static Color darkAppBarTitleColor = const Color(0xFF8696a0);
   static Color darkModeWhiteText = const Color(0xFFE9EDEF);
   static Color darkModeGreyText = const Color(0xFF8696A0);
+  static Color darkModeGreyIconColor = const Color(0xFF8696A0);
 
   const AppTheme._();
 
@@ -62,7 +65,7 @@ class AppTheme {
       ),
     ),
     iconTheme: IconThemeData(
-      color: lightAppBarIconColor,
+      color: lightAppBarIconColor, // Home screen appBar icons
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: floatingActionButtonColor,
@@ -127,4 +130,22 @@ class AppTheme {
         ? AppTheme.setStatusAndNavigationBarColors(ThemeMode.light)
         : AppTheme.setStatusAndNavigationBarColors(ThemeMode.dark);
   }
+}
+
+extension ThemeExtension on ThemeData {
+  Color get chatScreenTitleColor => this.brightness == Brightness.light
+      ? AppTheme.lightAppBarTitleColor
+      : AppTheme.darkModeWhiteText;
+
+  Color get messageContainerIconsColor => this.brightness == Brightness.light
+      ? AppTheme.lightModeGreyIconColor
+      : AppTheme.darkModeGreyIconColor;
+
+  Color get messageContainerColor => this.brightness == Brightness.light
+      ? AppTheme.lightPrimaryColor
+      : AppTheme.darkModeDeepGrey;
+
+  Color get chatScreenAppBarColor => this.brightness == Brightness.light
+      ? AppTheme.lightSecondaryColor
+      : AppTheme.darkModeDeepGrey;
 }
