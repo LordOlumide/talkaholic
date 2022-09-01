@@ -12,4 +12,6 @@ Witness me as I convert this flutter project into a great chatting app suitable 
 ### Targets:
 - Firebase for backend
 - BLoC for state management
-- 
+
+I will stop working in the UI  for now and try to make the text messaging feature work.
+Authentication and firestore, I will need to implement.

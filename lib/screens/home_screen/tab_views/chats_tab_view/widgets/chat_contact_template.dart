@@ -32,6 +32,7 @@ class ChatContactTemplate extends StatelessWidget {
             // Profile image
             CircleAvatar(
               radius: 30,
+              // backgroundColor: , // TODO: Adjust CircleAvatar background color theme shifting
               child: profileImage != null
                   ? Image.asset('profileImage')
                   : const Icon(
@@ -66,7 +67,7 @@ class ChatContactTemplate extends StatelessWidget {
                           formatLastContactTime(lastContactTime),
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyMedium!.color,
-                            fontSize: 11.8,
+                            fontSize: 12,
                           ),
                         ),
                       ],
@@ -79,6 +80,7 @@ class ChatContactTemplate extends StatelessWidget {
                       lastMessage,
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyMedium!.color,
+                        fontSize: 15,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
