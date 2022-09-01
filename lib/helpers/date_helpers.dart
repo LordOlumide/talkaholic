@@ -16,6 +16,6 @@ String formatLastContactTime(time) {
     String day = dayDateFormat.format(time);
     String month = monthDateFormat.format(time);
     String year = yearDateFormat.format(time);
-    return '$month/$day/$year';
+    return '$month/$day/${year.substring(2)}';
   }
 }

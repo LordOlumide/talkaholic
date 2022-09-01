@@ -18,68 +18,68 @@ class ChatContactTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      color: Theme
-          .of(context)
-          .colorScheme
-          .primary,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+      color: Theme.of(context).colorScheme.primary,
+      height: 80,
       child: Row(
         children: [
           // Profile image
           CircleAvatar(
+            radius: 30,
             child: profileImage != null
                 ? Image.asset('profileImage')
                 : const Icon(
-              Icons.person,
-              size: 30,
-            ),
+                    Icons.person,
+                    size: 40,
+                  ),
           ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Contact name and time last edited
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          contactName,
+                          style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        formatLastContactTime(lastContactTime),
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyMedium!.color,
+                          fontSize: 11.8,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
-          Column(
-            children: [
-              // Contact name and time last edited
-              Row(
-                children: [
-                  Text(
-                    contactName,
+                // Last message
+                Expanded(
+                  child: Text(
+                    lastMessage,
                     style: TextStyle(
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color,
-                      fontSize: 16,
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
-                    formatLastContactTime(lastContactTime),
-                    style: TextStyle(
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .color,
-                    ),
-                  ),
-                ],
-              ),
-
-              // Last message
-              Text(
-                lastMessage,
-                style: TextStyle(
-                  color: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .color,
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

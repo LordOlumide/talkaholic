@@ -7,19 +7,15 @@ class ChatsTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          for (int i = 0; i < placeholderContacts.length; i++)
-            ChatContactTemplate(
-              contactName: placeholderContacts[i]['contactName'],
-              lastMessage: placeholderContacts[i]['lastMessage'],
-              lastContactTime: placeholderContacts[i]['lastContactTime'],
-              profileImage: placeholderContacts[i]['profileImage'],
-            ),
-        ],
-      ),
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: placeholderContacts.length,
+      itemBuilder: (context, index) => ChatContactTemplate(
+            contactName: placeholderContacts[index]['contactName'],
+            lastMessage: placeholderContacts[index]['lastMessage'],
+            lastContactTime: placeholderContacts[index]['lastContactTime'],
+            profileImage: placeholderContacts[index]['profileImage'],
+          ),
     );
   }
 }
